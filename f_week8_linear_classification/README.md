@@ -1,53 +1,69 @@
 # Fall Week 8 — Linear Classification
 
-This folder contains the coding activity for the AI@UCI Week 8 workshop.
+## Presenter Notes
 
-## Files
-- `fill-in-blanks.ipynb` — student version used during the live workshop
-- `master.ipynb` — completed answer key / instructor version
-- `requirements.txt` — Python dependencies
+### Main ideas to emphasize
 
-## Workshop flow
-The notebook mirrors the slide narrative:
+- A linear classifier separates the feature space using a straight decision boundary.
+- The score $z = w^T x + b$ tells us which side of the boundary a point lies on.
+- The sign of the score determines the predicted class.
+- The weights `w` control the direction / orientation of the boundary.
+- The bias `b` shifts the boundary.
+- A perceptron-style classifier updates only when it makes a mistake.
+- Training means repeatedly predicting, checking, and updating.
+- Test accuracy matters because high training accuracy does not guarantee generalization.
 
-`feature space → score → prediction → mistake → update → repeat → test`
+### Common student confusion
 
-Students build a small binary linear classifier from scratch using a perceptron-style update, visualize the learned decision boundary, evaluate on unseen data, and finally compare the implementation with `sklearn.linear_model.Perceptron`.
+- Students may confuse the score with the final class prediction.
+  Emphasize that the score is a number first, then its sign becomes the class.
 
-## Teaching structure
-This notebook follows the AI@UCI workshop guidance:
+- Students may think `w` and `b` are arbitrary variables.
+  Connect them directly to the geometry of the decision boundary.
 
-- Keep the same conceptual theme as the slides.
-- Use a student fill-in-blanks notebook and a completed answer key.
-- Fill the student notebook live while presenting.
-- Do not make every cell a TODO.
-- Show a completed example first, then ask students to implement a similar step.
-- Keep plotting/helper code completed when syntax is not the teaching goal.
+- Students may not understand why an update changes the line.
+  Show one manual update and connect the changed weights back to the plotted boundary.
 
-## Suggested live flow
-1. Run the feature-space visualization.
-2. Complete the train/test split.
-3. Show the completed score example.
-4. Have students compute a second score and prediction.
-5. Implement `predict_one`.
-6. Show one completed perceptron update.
-7. Have students repeat the update on a second example.
-8. Complete the training loop.
-9. Compare the boundary before vs. after training.
-10. Compute train/test accuracy.
-11. Run the sklearn reference model.
+- Students may assume more epochs always means better performance.
+  Explain that training behavior depends on the data and model.
 
-## Timing
+- Students may confuse training accuracy with test accuracy.
+  Reinforce that the test set represents unseen examples.
+
+### Suggested teaching flow
+
+1. Start with the feature-space plot and ask students where they would draw a separating line.
+2. Connect that line to the equation $w_1x_1 + w_2x_2 + b = 0$.
+3. Compute one score manually.
+4. Convert the score into a prediction.
+5. Show one completed perceptron update.
+6. Have students repeat the update on another example.
+7. Build the prediction function.
+8. Turn the update rule into a training loop.
+9. Visualize how the boundary changes after training.
+10. Compare training and test accuracy.
+11. Finish by showing the sklearn `Perceptron` version.
+
+### If students get stuck
+
+- Reconnect the math to the picture.
+- Ask which side of the boundary a point lies on.
+- Work through one score and one update manually before returning to the loop.
+- Keep helper plotting code completed so students can focus on the classifier logic.
+
+### Timing
+
 Core activity: about 15–20 minutes.
 
-If short on time, keep:
+If time is limited, prioritize:
 - score → prediction
 - one manual update
 - training loop
 - learned boundary
 - test accuracy
 
-The sklearn comparison and final extension can be shortened or skipped.
+The sklearn comparison and final extension can be shortened if needed.
 
 ## Environment
+
 Python 3 with NumPy, pandas, matplotlib, and scikit-learn.
