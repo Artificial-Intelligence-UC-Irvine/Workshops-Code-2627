@@ -5,8 +5,11 @@ Coding Notebook guide: https://docs.google.com/presentation/d/1KL4fMLXjule-7V7qy
 
 When adding code example follow these rules:
 1. Create your own branch named after your name (e.g. `shreya`) and put all your changes there.
+
     a) Please use the .gitignore file!
+
     b) Make sure you pull the main branch before you add your changes in to avoid merging issues.
+    
 2. Make a folder titled by the topic name: `[f | w | s]_week[WEEK_NUMBER]_[TOPIC_NAME]`
 3. Add your code examples into that folder. There should be two notebooks: master and student.
 4. Make a PR and merge it with the main branch after Shreya reviews the code.
